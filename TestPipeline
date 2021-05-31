@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  
+  environment {
+    DEMO='1.6'
+  }
+  
+  stages {
+    stage('Stage Test') {
+      steps {
+        echo "This is build number $BUILD_NUMBER of demo $DEMO"
+      }
+    }
+   }
+}
