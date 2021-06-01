@@ -14,8 +14,14 @@ pipeline {
     stage('Create File') {
       steps {
         echo "Creating new file"
-        writeFile file: 'teste-result.txt', text: 'test passed' 
+        writeFile file: 'test-results.txt', text: 'test passed' 
       }
     }
+   }
+   
+   post {
+      success {
+          archiveArtifacts 'test-results.txt'
+      }
    }
 }
